@@ -2,6 +2,8 @@ package com.silkaitis;
 
 import com.silkaitis.exception.LogicException;
 import com.silkaitis.model.Product;
+import com.silkaitis.pricing.PricingService;
+import com.silkaitis.pricing.PricingServiceUtility;
 import com.silkaitis.utility.PriceCalculator;
 import com.silkaitis.utility.PriceCalculatorUtility;
 
@@ -14,10 +16,12 @@ import java.util.List;
 public class Application {
 
     private final PriceCalculator priceCalculator = new PriceCalculatorUtility();
+    private final PricingService pricingService = new PricingServiceUtility();
 
     /**
      * Main method to begin the program.
-     * @param args - shopping cart array, where ',' is a separator for product details. E.g. [coke, 0.70],[beans, 0.50]
+     *
+     * @param args - shopping cart array of products.
      */
     public static void main(String[] args) {
         //Getting away from static context.
@@ -36,7 +40,7 @@ public class Application {
      * Main method that runs the application with provided data.
      */
     Double calculateTotal(String[] args) {
-        List<Product> shoppingCart = new ArrayList<Product>();
+        List<Product> shoppingCart = new ArrayList<>();
         double total = 0;
 
         try {
@@ -55,22 +59,13 @@ public class Application {
 
     /**
      * Creates product model based on given input.
+     *
      * @param shoppingCart - The list of Products.
-     * @param arg - Supplied data, which is formatted in commas.
+     * @param productName  - Supplied product name.
      * @throws LogicException - If the data is incorrect throws error with reason.
      */
-    private void createProductModel(List<Product> shoppingCart, String arg) throws LogicException {
-        String[] productDetails = arg.split(",");
-
-        //Constructs the product model, if the price is given in incorrect format, it would print out the error.
-        try {
-            if (productDetails.length != 2) {
-                throw new LogicException("The supplied product information is not in correct format.");
-            }
-            Product product = new Product(productDetails[0], Double.valueOf(productDetails[1]));
-            shoppingCart.add(product);
-        } catch (NumberFormatException ex) {
-            throw new LogicException("Sorry, but the price was not in correct format.", ex);
-        }
+    private void createProductModel(List<Product> shoppingCart, String productName) throws LogicException {
+        Product product = new Product(productName, pricingService.getProductPrice(productName));
+        shoppingCart.add(product);
     }
 }
