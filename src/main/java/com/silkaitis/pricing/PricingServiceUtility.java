@@ -4,7 +4,6 @@ import com.silkaitis.exception.LogicException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Properties;
 
 /**
  * Pricing service logic to load the prices from the properties file.
@@ -13,7 +12,7 @@ public class PricingServiceUtility implements PricingService {
 
     public double getProductPrice(String productName) throws LogicException {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("prices.properties")) {
-            Properties prop = new Properties();
+            CaselessProperties prop = new CaselessProperties();
 
             //Load a properties file
             prop.load(input);
