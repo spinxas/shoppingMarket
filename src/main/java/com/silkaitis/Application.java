@@ -46,7 +46,7 @@ public class Application {
         try {
             //Iterates through argument array to retrieve product details.
             for (String arg : args) {
-                createProductModel(shoppingCart, arg);
+                createProductModel(shoppingCart, arg.toLowerCase());
             }
             //Calculate the shopping price
             total = priceCalculator.calculateTotalPrice(shoppingCart);
