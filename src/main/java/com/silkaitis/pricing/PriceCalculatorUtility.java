@@ -17,6 +17,7 @@ public class PriceCalculatorUtility implements PriceCalculator {
 
     private static final int THREE = 3;
     private static final int TWO = 2;
+    private static final int ONE = 1;
     private DiscountService discountService = new DiscountServiceUtility();
 
     public BigDecimal calculateTotalPrice(List<Product> products) throws LogicException {
@@ -57,8 +58,10 @@ public class PriceCalculatorUtility implements PriceCalculator {
         if (frequency >= 2 && discountService.getTwoForOneDiscount(product.getName())) {
             int discountApplicable = frequency / 2;
 
-            //Calculates the discount by multiplying the price by the frequency of repeating products of twos.
-            BigDecimal discount = (product.getPrice().multiply(BigDecimal.valueOf(discountApplicable)));
+            //Calculates the discount by multiplying the price by two and subtracting by one. Result is multiplied by frequency of products of twos.
+            BigDecimal discount = product.getPrice().multiply(BigDecimal.valueOf(TWO))
+                    .subtract(BigDecimal.valueOf(ONE))
+                    .multiply(BigDecimal.valueOf(discountApplicable));
 
             System.out.println("Two for One discount: " + discount);
             total = total.subtract(discount);

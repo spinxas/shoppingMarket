@@ -62,6 +62,6 @@ public class PricingCalculatorTest {
 
         BigDecimal total = priceCalculator.calculateTotalPrice(productList);
 
-        assertEquals(BigDecimal.valueOf(1.2), total);
+        assertEquals(BigDecimal.valueOf(1.5), total);
     }
 }

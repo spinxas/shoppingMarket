@@ -17,6 +17,6 @@ public class ApplicationTest extends Application {
         Application application = new Application();
         BigDecimal total = application.calculateTotal(products);
 
-        assertEquals(BigDecimal.valueOf(1.2), total);
+        assertEquals(BigDecimal.valueOf(1.5), total);
     }
 }
