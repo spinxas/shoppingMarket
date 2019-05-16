@@ -2,6 +2,8 @@ package com.silkaitis.pricing;
 
 import com.silkaitis.exception.LogicException;
 
+import java.math.BigDecimal;
+
 public interface PricingService {
 
     /**
@@ -10,5 +12,5 @@ public interface PricingService {
      * @return - price of the product.
      * @throws LogicException - Exception is thrown if the file does not exist or price is formatted incorrectly.
      */
-    double getProductPrice(String productName) throws LogicException;
+    BigDecimal getProductPrice(String productName) throws LogicException;
 }

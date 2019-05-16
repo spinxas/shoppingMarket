@@ -5,13 +5,14 @@ import com.silkaitis.utility.CaselessProperties;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 
 /**
  * Pricing service logic to load the prices from the properties file.
  */
 public class PricingServiceUtility implements PricingService {
 
-    public double getProductPrice(String productName) throws LogicException {
+    public BigDecimal getProductPrice(String productName) throws LogicException {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("prices.properties")) {
             CaselessProperties prop = new CaselessProperties();
 
@@ -23,7 +24,7 @@ public class PricingServiceUtility implements PricingService {
             }
 
             //Get the property value and return the price.
-            return Double.valueOf(prop.getProperty(productName));
+            return new BigDecimal(prop.getProperty(productName));
         } catch (IOException ex) {
            throw new LogicException("Pricing file was not found.", ex);
         } catch (NumberFormatException e) {

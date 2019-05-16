@@ -5,6 +5,8 @@ import com.silkaitis.pricing.PricingService;
 import com.silkaitis.pricing.PricingServiceUtility;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -31,8 +33,8 @@ public class PricingServiceTest {
     public void checkForPrice() throws LogicException {
         PricingService pricingService = new PricingServiceUtility();
 
-        double price = pricingService.getProductPrice("Coke");
+        BigDecimal price = pricingService.getProductPrice("Coke");
 
-        assertEquals(price, 0.7, 0.0001);
+        assertEquals(BigDecimal.valueOf(0.7), price);
     }
 }

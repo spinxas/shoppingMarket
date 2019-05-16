@@ -1,5 +1,6 @@
 package com.silkaitis.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -8,9 +9,9 @@ import java.util.Objects;
 public class Product {
 
     private String name;
-    private Double price;
+    private BigDecimal price;
 
-    public Product(String name, Double price) {
+    public Product(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
@@ -19,7 +20,7 @@ public class Product {
         return name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 

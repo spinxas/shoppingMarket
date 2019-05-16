@@ -7,6 +7,7 @@ import com.silkaitis.pricing.PricingServiceUtility;
 import com.silkaitis.pricing.PriceCalculator;
 import com.silkaitis.pricing.PriceCalculatorUtility;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,7 @@ public class Application {
     public static void main(String[] args) {
         //Getting away from static context.
         Application app = new Application();
-        Double total = app.calculateTotal(args);
-        System.out.println("Total to Pay: " + total);
+        app.calculateTotal(args);
     }
 
     /**
@@ -39,9 +39,9 @@ public class Application {
     /**
      * Main method that runs the application with provided data.
      */
-    Double calculateTotal(String[] args) {
+    BigDecimal calculateTotal(String[] args) {
         List<Product> shoppingCart = new ArrayList<>();
-        double total = 0;
+        BigDecimal total = new BigDecimal(0);
 
         try {
             //Iterates through argument array to retrieve product details.
