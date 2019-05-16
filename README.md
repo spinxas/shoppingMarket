@@ -2,6 +2,14 @@
 
 Shopping market application that counts the price of the shopping cart.
 
-The prices are configured using prices.proprties file within the resource folder. New products can be added there as well.
+## Prices
+  The prices are configured using prices.proprties file within the resource folder.   
+  New products can be added there as well. It is based on key and value pair. E.g. coke=0.7
+
+## Discounts
+The discounts are configures using discouunt.properties file within the resource folder. There are two types of discounts:    
+* ThreeForTwo - Three products which are the same will be for the price of two.   
+* TwoForOne - Two products which are the same will cost 1£    
+Discount products are seperated by comma seperator within the properties file.
 
 The application takes string array as an argument, which contains the list of products that the user provides. E.g. ["Coke", "Coke", "Beans"]
