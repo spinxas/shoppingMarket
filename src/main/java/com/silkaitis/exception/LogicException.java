@@ -1,5 +1,8 @@
 package com.silkaitis.exception;
 
+/**
+ * Defined exception.
+ */
 public class LogicException extends Exception {
 
     public LogicException(String message, Throwable cause) {

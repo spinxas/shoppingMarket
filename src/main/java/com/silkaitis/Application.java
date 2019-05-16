@@ -4,8 +4,8 @@ import com.silkaitis.exception.LogicException;
 import com.silkaitis.model.Product;
 import com.silkaitis.pricing.PricingService;
 import com.silkaitis.pricing.PricingServiceUtility;
-import com.silkaitis.utility.PriceCalculator;
-import com.silkaitis.utility.PriceCalculatorUtility;
+import com.silkaitis.pricing.PriceCalculator;
+import com.silkaitis.pricing.PriceCalculatorUtility;
 
 import java.util.ArrayList;
 import java.util.List;

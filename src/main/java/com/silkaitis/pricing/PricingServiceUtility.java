@@ -1,6 +1,7 @@
 package com.silkaitis.pricing;
 
 import com.silkaitis.exception.LogicException;
+import com.silkaitis.utility.CaselessProperties;
 
 import java.io.IOException;
 import java.io.InputStream;

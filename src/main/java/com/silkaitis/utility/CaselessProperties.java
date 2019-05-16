@@ -1,7 +1,10 @@
-package com.silkaitis.pricing;
+package com.silkaitis.utility;
 
 import java.util.Properties;
 
+/**
+ * Utility class to load the properties ignoring case sensitivity.
+ */
 public class CaselessProperties extends Properties {
 
     public Object put(Object key, Object value) {
