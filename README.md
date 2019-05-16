@@ -12,4 +12,5 @@ The discounts are configured using discount.properties file within the resource 
 * TwoForOne - Two products which are the same will cost 1£    
 Discount products are seperated by comma seperator within the properties file.
 
+## Running the application
 The application takes string array as an argument, which contains the list of products that the user provides. E.g. ["Coke", "Coke", "Beans"]
