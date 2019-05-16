@@ -8,8 +8,8 @@ Shopping market application that counts the price of the shopping cart.
 
 ## Discounts
 The discounts are configured using discount.properties file within the resource folder. There are two types of discounts:    
-* ThreeForTwo - Three products which are the same will be for the price of two.   
-* TwoForOne - Two products which are the same will cost 1£    
+* 3for2 - Three products which are the same will be for the price of two.   
+* 2for1 - Two products which are the same will cost 1£    
 Products with discounts are seperated by comma seperator within the properties file.
 
 ## Running the application
